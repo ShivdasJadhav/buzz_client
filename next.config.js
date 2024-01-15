@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
-}
-
-module.exports = nextConfig
+  async rewrites() {
+      return [
+        {
+          source: '/api/:path*',
+          destination: 'https://buzz-server-bjlksw4z0-shivdasjadhav.vercel.app/:path*',
+        },
+      ]
+    },
+};

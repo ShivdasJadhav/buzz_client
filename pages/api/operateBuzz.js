@@ -10,7 +10,7 @@ export const createBuzz = async (buzz) => {
       ((buzz.disc ? buzz.disc : 0) / 100) * (buzz.price * buzz.qty),
   };
   let res = await axios
-    .post(`${server}/buzz/create`, data)
+    .post(`/api/buzz/create`, data)
     .then((res) => {
       if (res.status === 201) {
         return "ok";
@@ -29,7 +29,7 @@ export const updateBuzz = async (buzz,id) => {
       ((buzz.disc ? buzz.disc : 0) / 100) * (buzz.price * buzz.qty),
   };
   let res = await axios
-    .put(`${server}/buzz/update/${id}`, data)
+    .put(`/api/buzz/update/${id}`, data)
     .then((res) => {
       if (res.status === 200) {
         return "ok";
@@ -43,7 +43,7 @@ export const getBuzzs = async (search) => {
   let { nm, from, upto, type } = search;
   let res = await axios
     .get(
-      `${server}/buzz/getall/?name=${nm}&type=${type}`
+      `/api/buzz/getall/?name=${nm}&type=${type}`
     )
     .then((res) => res);
   if (res.status === 200) {
@@ -55,13 +55,13 @@ export const getBuzzs = async (search) => {
 
 export const deleteBuzz = async (id) => {
   let res = await axios
-    .delete(`${server}/buzz/delete/${id}`)
+    .delete(`/api/buzz/delete/${id}`)
     .then((res) => res);
   return res;
 };
 
 export const getBuzz = async (id) => {
-  let res = await axios.get(`${server}/buzz/getone/${id}`).then((res) => res);
+  let res = await axios.get(`/api/buzz/getone/${id}`).then((res) => res);
   if (res.status === 200) {
     let data = res.data[0];
     return {
