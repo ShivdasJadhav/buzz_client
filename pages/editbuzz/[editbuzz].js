@@ -61,7 +61,7 @@ function editbuzz() {
       <Toaster />
       <Navbar />
       <h2 className="text-2xl my-4 text-center italic">Update Transaction</h2>
-      <div className="w-6/12 mx-auto py-6 flex flex-col border border-2 border-gray-300 rounded-xl">
+      <div className="w-full md:w-6/12 mx-auto py-6 flex flex-col border border-2 border-gray-300 rounded-xl">
         <div className="flex m-2 justify-center">
           <label className="mx-2 text-xl font-semibold w-3/12" htmlFor="nm">
             Name
